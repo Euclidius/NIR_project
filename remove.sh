@@ -1,9 +1,11 @@
-cd /home/evarist/"Рабочий стол"/python/project/cheh
+cd path_to_study_choice_first_author
 rm c*.txt
-cd /home/evarist/"Рабочий стол"/python/project/test_cheh
+cd path_to_test_choice_first_author
 rm *
 
-cd /home/evarist/"Рабочий стол"/python/project/tolst
+cd path_to_study_choice_second_author
 rm t*.txt
-cd /home/evarist/"Рабочий стол"/python/project/test_tolst
+cd path_to_test_choice_second_author
 rm *
+
+echo Done

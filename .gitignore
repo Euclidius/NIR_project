@@ -4,3 +4,5 @@ bin
 lib
 share
 pyvenv.cfg
+add.sh
+remove.sh

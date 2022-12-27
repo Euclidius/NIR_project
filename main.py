@@ -8,11 +8,11 @@ from scraper import SYMBOLS_IN_FILE
 import os
 import matplotlib.pyplot as plt
 
-FIRST_PATH = '/home/evarist/Рабочий стол/python/project/cheh'
-SECOND_PATH = '/home/evarist/Рабочий стол/python/project/tolst'
+FIRST_PATH = path_to_study_choice_first_author
+SECOND_PATH = path_to_study_choice_second_author
 
-FIRST_TEST_PATH = '/home/evarist/Рабочий стол/python/project/test_cheh'
-SECOND_TEST_PATH = '/home/evarist/Рабочий стол/python/project/test_tolst'
+FIRST_TEST_PATH = path_to_test_choice_first_author
+SECOND_TEST_PATH = path_to_test_choice_second_author
 
 SYMBOLS = SYMBOLS_IN_FILE
 
@@ -52,59 +52,61 @@ def test_all(data:list, line:list, must_be:str) -> float:
     for point in data:
         if not test_an_author(point, line, must_be):
             errors += 1
-    return round(1 - (errors / len(data)), 3)
+    return round(errors / len(data), 3)
 
 
 def main():
 
     first_file_list, second_file_list = _get_dirs(FIRST_PATH, SECOND_PATH)
 
-    mid_sentence_len_first, mid_word_len_first = _get_mid_characteristics(first_file_list, FIRST_PATH)
-    mid_sentence_len_second, mid_word_len_second = _get_mid_characteristics(second_file_list, SECOND_PATH)
+    mid_sentence_len_first, mid_word_len_first = _get_mid_characteristics(first_file_list, FIRST_PATH) #tolst
+    mid_sentence_len_second, mid_word_len_second = _get_mid_characteristics(second_file_list, SECOND_PATH) #cheh
     
     
-    plt.scatter(x = mid_sentence_len_first, y = mid_word_len_first, color = 'green')
-    plt.scatter(x = mid_sentence_len_second, y = mid_word_len_second, color = 'red')
+    plt.scatter(x = mid_sentence_len_first, y = mid_word_len_first, color = 'green') #tolst
+    plt.scatter(x = mid_sentence_len_second, y = mid_word_len_second, color = 'red') #cheh
     
 
-    matrix1 = _get_matrix_with_mid_characteristics(mid_sentence_len_first, mid_word_len_first)
-    matrix2 = _get_matrix_with_mid_characteristics(mid_sentence_len_second, mid_word_len_second)
+    matrix1 = _get_matrix_with_mid_characteristics(mid_sentence_len_first, mid_word_len_first) #tolst
+    matrix2 = _get_matrix_with_mid_characteristics(mid_sentence_len_second, mid_word_len_second) #cheh
 
     line = get_coefs_for_line(matrix1, matrix2)
     print(f'{line} - line for studying choice')
 
     #tests
     first_file_list_test, second_file_list_test = _get_dirs(FIRST_TEST_PATH, SECOND_TEST_PATH)
-    mid_sentence_len_first_test, mid_word_len_first_test = _get_mid_characteristics(first_file_list_test, FIRST_TEST_PATH)
-    mid_sentence_len_second_test, mid_word_len_second_test = _get_mid_characteristics(second_file_list_test, SECOND_TEST_PATH)
+    mid_sentence_len_first_test, mid_word_len_first_test = _get_mid_characteristics(first_file_list_test, FIRST_TEST_PATH) #tolst
+    mid_sentence_len_second_test, mid_word_len_second_test = _get_mid_characteristics(second_file_list_test, SECOND_TEST_PATH) #cheh
     matrix1_test = _get_matrix_with_mid_characteristics(mid_sentence_len_first_test, mid_word_len_first_test)
     matrix2_test = _get_matrix_with_mid_characteristics(mid_sentence_len_second_test, mid_word_len_second_test)
+    
+    print(f"{test_all(matrix1, line, 'above')} - accuracy for Tolstoy (study)")
+    print(f"{test_all(matrix2, line, 'under')} - accuracy for Chehov (study)")
+
     matrix1_test += matrix1
     matrix2_test += matrix2
     '''
     new_line = get_coefs_for_line(matrix1_test, matrix2_test)
     print(f'{new_line} - line for the testing choice')
     '''
-    print(f"{test_all(matrix2_test, line, 'above')} - accuracy for Tolstoy (based)")
-    print(f"{test_all(matrix1_test, line, 'under')} - accuracy for Chehov (based)")
 
-    print(f"{test_all(matrix2_test, line, 'above')} - accuracy for Tolstoy (cringe)")
-    print(f"{test_all(matrix1_test, line, 'under')} - accuracy for Chehov (cringe)")
+    print(f"{test_all(matrix1_test, line, 'above')} - accuracy for Tolstoy (test)")
+    print(f"{test_all(matrix2_test, line, 'under')} - accuracy for Chehov (test)")
 
     plt.scatter(x = mid_sentence_len_first_test, y = mid_word_len_first_test, color = 'blue')
     plt.scatter(x = mid_sentence_len_second_test, y = mid_word_len_second_test, color = 'orange')
 
-
-    plt.plot([0, 25], [line[0] * 0 + line[1], line[0] * 25 + line[1]])
     ax = plt.gca()
     ax.set_xlabel("Средняя длина предложения (слов)")
     ax.set_ylabel("Средняя длина слова (символов)")
-    plt.legend(['А.П.Чехов', 'Л.Н.Толстой', 'А.П.Чехов (тест)', 'Л.Н.Толстой (тест)'], loc='best')
+    plt.legend(['А.Н.Толстой', 'А.П.Чехов', 'А.Н.Толстой (тест)', 'А.П.Чехов (тест)'], loc='best')
 
+    plt.plot([5, 22], [line[0] * 5 + line[1], line[0] * 22 + line[1]])
     
-    plt.savefig(f"/home/evarist/Рабочий стол/python/project/graphs/{SYMBOLS}.jpg")
+    
+    plt.savefig(path_to_dir_where_plots_will_contain)
     #plt.grid()
-    plt.show()
+    #plt.show()
 
 if __name__ == '__main__':
     main()

@@ -18,7 +18,7 @@ def all_words_statistic(file_name:str, words:dict = None) -> dict:
 
     for i in data:
         if i in words.keys():
-            words[i] += 1;
+            words[i] += 1
         else:
             words.update({i:1})
 
@@ -26,10 +26,7 @@ def all_words_statistic(file_name:str, words:dict = None) -> dict:
     
 
 def main():
-    path = '/home/evarist/Рабочий стол/python/venv/new/source.txt'
-    a = all_words_statistic(path)
-    res = {key: val for key, val in sorted(a.items(), key = lambda ele: ele[1], reverse = True)}
-    print(res)
+    pass
 
 if __name__ == '__main__':
     main()

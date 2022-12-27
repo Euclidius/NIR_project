@@ -1,14 +1,16 @@
-cd /home/evarist/"Рабочий стол"/python/project/cheh
-mv c1??.txt /home/evarist/"Рабочий стол"/python/project/test_cheh
-mv c2??.txt /home/evarist/"Рабочий стол"/python/project/test_cheh
-mv c3??.txt /home/evarist/"Рабочий стол"/python/project/test_cheh
-mv c4??.txt /home/evarist/"Рабочий стол"/python/project/test_cheh
+cd path_to_study_choice_first_author
+mv c1??.txt path_to_test_choice_first_author
+mv c2??.txt path_to_test_choice_first_author
+mv c3??.txt path_to_test_choice_first_author
+mv c4??.txt path_to_test_choice_first_author
 
 
 
-cd /home/evarist/"Рабочий стол"/python/project/tolst
-mv t1??.txt /home/evarist/"Рабочий стол"/python/project/test_tolst
-mv t2??.txt /home/evarist/"Рабочий стол"/python/project/test_tolst
-mv t3??.txt /home/evarist/"Рабочий стол"/python/project/test_tolst
-mv t4??.txt /home/evarist/"Рабочий стол"/python/project/test_tolst
-mv t5??.txt /home/evarist/"Рабочий стол"/python/project/test_tolst
+cd path_to_study_choice_second_author
+mv t1??.txt path_to_test_choice_second_author
+mv t2??.txt path_to_test_choice_second_author
+mv t3??.txt path_to_test_choice_second_author
+mv t4??.txt path_to_test_choice_second_author
+mv t5??.txt path_to_test_choice_second_author
+
+echo Done

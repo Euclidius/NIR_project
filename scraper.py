@@ -1,7 +1,7 @@
 letters = 'йцукенгшщзхъфывапролджэячсмитьбюёЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ'
-dirs = ['tolst', 'cheh']
-source = '/home/evarist/Рабочий стол/python/project'
-SYMBOLS_IN_FILE = 20000
+dirs = ['author1', 'author2']
+source = path_to_project
+SYMBOLS_IN_FILE = 5000
 
 for dir in dirs:
     identifier = dir[0]

@@ -21,8 +21,7 @@ def mid_word_len(file_name:str) -> float:
 
 
 def main():
-    path = '/home/evarist/Рабочий стол/python/new/cheh/c6.txt'
-    print(round(mid_word_len(path), 3))
+    pass
 
 if __name__ == '__main__':
     main()

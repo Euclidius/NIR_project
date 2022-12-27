@@ -28,8 +28,7 @@ def mid_sentence_len(file_name:str) -> float:
         return round(total_words / sentence_counter, 3)
 
 def main():
-    path = '/home/evarist/Рабочий стол/python/new/tolst/t4.txt'
-    print(round(mid_sentence_len(path), 3))
+    pass
 
 
 if __name__ == '__main__':
